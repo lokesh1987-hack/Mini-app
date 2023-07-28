@@ -15,7 +15,7 @@ function LineChart({ MonthlyChart, QuaterlyChart }) {
     <div
       className="chart-container"
       style={{
-        width: "80%",
+        width: "50%",
         margin: "auto",
         marginTop: "10%",
         marginBottom: "10%",

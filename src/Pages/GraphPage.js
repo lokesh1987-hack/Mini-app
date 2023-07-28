@@ -45,7 +45,7 @@ function GraphPage() {
     ],
   };
   return (
-    <div style={{}}>
+    <div>
       <BarChart QuaterlyChart={QuaterlyChart} MonthlyChart={MonthlyChart} />
       <LineChart QuaterlyChart={QuaterlyChart} MonthlyChart={MonthlyChart} />
     </div>

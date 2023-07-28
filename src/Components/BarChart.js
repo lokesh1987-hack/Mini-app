@@ -15,7 +15,7 @@ export const BarChart = ({ MonthlyChart, QuaterlyChart }) => {
   return (
     <div
       className="chart-container"
-      style={{ width: "80%", margin: "auto", marginTop: "10%" }}
+      style={{ width: "50%", margin: "auto", marginTop: "10%" }}
     >
       <h2 style={{ textAlign: "center" }}>Bar Chart</h2>
       <Bar
