@@ -16,6 +16,8 @@ import Paper from "@mui/material/Paper";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 import { object } from "../utils/Data";
 
 const columnHelper = createColumnHelper();
@@ -106,41 +108,53 @@ function TablePage() {
   });
 
   return (
-    <div style={{ height: "70vh", marginTop: "10%" }}>
-      <TableContainer component={Paper} sx={{ width: "70%", mx: "auto" }}>
-        <MuiTable sx={{ minWidth: 650 }} aria-label="table">
-          <TableHead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <StyledTableCell key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </StyledTableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableHead>
-          <TableBody>
-            {table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} component="th" scope="row">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </MuiTable>
-      </TableContainer>
+    <div>
+      <div class="jumbotron bg-light ps-5 pt-5 pb-5">
+        <Button variant="contained" color="primary">
+          <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            Back
+          </Link>
+        </Button>
+      </div>
+      <div style={{ height: "70vh", marginTop: "10%" }}>
+        <TableContainer component={Paper} sx={{ width: "70%", mx: "auto" }}>
+          <MuiTable sx={{ minWidth: 650 }} aria-label="table">
+            <TableHead>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <StyledTableCell key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </StyledTableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableHead>
+            <TableBody>
+              {table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id} component="th" scope="row">
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </MuiTable>
+        </TableContainer>
+      </div>
     </div>
   );
 }

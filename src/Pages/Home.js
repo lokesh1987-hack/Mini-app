@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import GraphPage from "./GraphPage";
-import TablesPage from "./TablesPage";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
 function Home() {
-  const [state, setState] = useState("table");
   return (
     <div>
       <div class="jumbotron bg-light">
-        <p class="pb-5 pt-5 text-center">
-          <Button
-            variant="contained"
-            className="me-2"
-            onClick={() => setState("table")}
-          >
-            My Table
+        <p class="lead pb-5 pt-5 text-center">
+          <Button variant="contained" className="me-2" color="primary">
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/tables"
+            >
+              My Table
+            </Link>
           </Button>
-          <Button variant="contained" onClick={() => setState("Graph")}>
-            Chart
+          <Button variant="contained" color="primary">
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/graphs"
+            >
+              Graph
+            </Link>
           </Button>
         </p>
       </div>
-      <div>{state === "table" ? <TablesPage /> : <GraphPage />}</div>
     </div>
   );
 }
